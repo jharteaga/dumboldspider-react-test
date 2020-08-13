@@ -1,5 +1,5 @@
 import React from 'react';
-import FacebookLogin from 'react-facebook-login';
+import { FacebookProvider, LoginButton } from 'react-facebook';
 
 import authService from '../../services/AuthService';
 import './login.component.scss';
@@ -7,7 +7,7 @@ import './login.component.scss';
 const Login = () => {
   const responseFacebook = async (response) => {
     if (!response.status) {
-      await authService.login({ name: response.name });
+      await authService.login({ name: response.profile.name });
       window.location = '/home';
     }
   };
@@ -15,14 +15,17 @@ const Login = () => {
   return (
     <div>
       <h1>Login</h1>
-      <FacebookLogin
-        appId={process.env.REACT_APP_FB_APP_ID}
-        autoLoad={false}
-        fields="name,email,picture"
-        scope="email"
-        callback={responseFacebook}
-        version="7.0"
-      />
+      <FacebookProvider appId={process.env.REACT_APP_FB_APP_ID}>
+        <LoginButton
+          scope="email"
+          onCompleted={responseFacebook}
+          onError={(err) =>
+            console.log('Error in Facebook Authentication', err.message)
+          }
+        >
+          <span>Login via Facebook</span>
+        </LoginButton>
+      </FacebookProvider>
     </div>
   );
 };
