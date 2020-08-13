@@ -14,6 +14,11 @@ const Menu = () => {
     setIsLoggedIn(status);
   };
 
+  const logout = async () => {
+    authService.logout();
+    window.location = '/home';
+  };
+
   useEffect(() => {
     setIsLoggedIn(getInfo());
   }, []);
@@ -60,15 +65,14 @@ const Menu = () => {
         ) : (
           <>
             <h5 className="mt-2 mr-3">Welcome, {userInfo.name}</h5>
-            <NavLink to="/logout">
-              <button
-                className="btn btn-danger my-2 my-sm-0 mr-2"
-                data-toggle="collapse"
-                data-target=".navbar-collapse.show"
-              >
-                Logout
-              </button>
-            </NavLink>
+            <button
+              className="btn btn-danger my-2 my-sm-0 mr-2"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+              onClick={logout}
+            >
+              Logout
+            </button>
           </>
         )}
       </div>
