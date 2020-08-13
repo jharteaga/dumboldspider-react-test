@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 import authService from '../../services/AuthService';
-import { useEffect } from 'react';
+import './menu.component.scss';
 
 const Menu = () => {
   const [isLoggedIn, setIsLoggedIn] = useState();

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import authService from '../../services/AuthService';
 import cartoon from '../../assets/img/cartoon.png';
-import FbLikeButton from '../../components/fb-like-button/fb-like-button.component';
+import FbLikeShareButton from '../../components/fb-like-share-button/fb-like-share-button.component';
 import './about.component.scss';
 
 const About = () => {
@@ -17,7 +17,7 @@ const About = () => {
   }, [isLoggedIn]);
 
   return (
-    <>
+    <div className="about">
       <div className="card" style={{ width: '18rem' }}>
         <img src={cartoon} className="card-img-top" alt="cartoon" />
         <div className="card-body">
@@ -26,11 +26,11 @@ const About = () => {
         </div>
       </div>
       {isLoggedIn && (
-        <div>
-          <FbLikeButton />
+        <div className="about-fb">
+          <FbLikeShareButton />
         </div>
       )}
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,22 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &-text {
+    font-weight: bold;
+    margin: 0.5em 0;
+  }
+
+  &-fb-btn {
+    color: white;
+    background-color: #3b5998;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+
+    &-text {
+      font-size: 1.2rem;
+    }
+  }
+}

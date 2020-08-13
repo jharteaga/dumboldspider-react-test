@@ -13,8 +13,8 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div className="login">
+      <h1 className="login-text">Login</h1>
       <FacebookProvider appId={process.env.REACT_APP_FB_APP_ID}>
         <LoginButton
           scope="email"
@@ -22,8 +22,9 @@ const Login = () => {
           onError={(err) =>
             console.log('Error in Facebook Authentication', err.message)
           }
+          className="login-fb-btn"
         >
-          <span>Login via Facebook</span>
+          <span className="login-fb-btn-text">Facebook Login</span>
         </LoginButton>
       </FacebookProvider>
     </div>
