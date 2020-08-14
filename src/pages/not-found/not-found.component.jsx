@@ -4,8 +4,8 @@ import './not-found.component.scss';
 
 const NotFound = () => {
   return (
-    <div>
-      <h1>Opps! Page not found!</h1>
+    <div className="not-found">
+      <h1 className="not-found-text">Opps! Page not found!</h1>
     </div>
   );
 };
